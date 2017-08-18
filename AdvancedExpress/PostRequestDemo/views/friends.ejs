@@ -3,3 +3,8 @@
 <% friends.forEach(friend => { %>
   <li><%= friend %></li>
 <% }); %>
+
+<form action="/addfriend" method="POST">
+    <input type="text" name="novoamigo" placeholder="Nome"></input>
+    <button>Eu fiz um novo amigo!</button>
+</form>
