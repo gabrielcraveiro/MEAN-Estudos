@@ -1,14 +1,28 @@
-var express = require('express');
+var express = require("express");
 var app = express();
 
-// Routes
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
-app.get('/dog/:name', function (req, res) {
-  var dogParam = req.params.name;
-  res.render("home.ejs", {dogName: dogParam});
-  // res.send('<h1>Bem vindo ao H1</h1>');
+app.get("/", function(req, res){
+    res.render("home");
+});
+
+app.get("/fallinlovewith/:thing", function(req, res){
+  var thing = req.params.thing;
+   res.render("love", {thingVar: thing});
+});
+
+app.get("/posts", function(req, res){
+    var posts = [
+        {title: "Post 1", author: "Susy"},
+        {title: "My adorable pet bunny", author: "Charlie"},
+        {title: "Can you believe this pomsky?", author: "Colt"}
+    ];
+    
+    res.render("posts", {posts: posts});
 })
 
-app.listen(process.env.PORT, process.env.IP, function () {
-  console.log("Servidor funcionando");
-})
+app.listen(process.env.PORT, process.env.IP, function(){
+   console.log("Server is listening!!!"); 
+});
