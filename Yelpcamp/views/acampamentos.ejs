@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<h2>Acampamentos</h2>
+
+<a href="/acampamentos/new">Cadastrar novo acampamento</a>
+
+<% acampamentos.forEach(acampamento =>{ %>
+  <div>
+    <h4><%= acampamento.name %></h4>
+    <img src="<%= acampamento.image %>"></img>
+  </div>
+<% }) %>
+
+<% include partials/footer %>
