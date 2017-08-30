@@ -16,7 +16,6 @@ app.get('/', function(req, res) {
 })
 
 app.get('/acampamentos', function(req, res) {
-  
   res.render('acampamentos', {acampamentos: acampamentos});
 })
 
